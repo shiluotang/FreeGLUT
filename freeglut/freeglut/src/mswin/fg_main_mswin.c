@@ -1544,6 +1544,7 @@ LRESULT CALLBACK fgPlatformWindowProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
     }
 #endif
 
+#if _WIN32_WINNT >= 0x0501
 #ifdef WM_INPUT
     case WM_INPUT:
         /* Added by Jinrong Xie <stonexjr at gmail.com> for SpaceNavigator support on Windows. Dec 2014 */
@@ -1552,6 +1553,7 @@ LRESULT CALLBACK fgPlatformWindowProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
             fgSpaceballHandleWinEvent(hWnd, wParam, lParam);
         }
         break;
+#endif
 #endif
     default:
         /* Handle unhandled messages */
